@@ -1,0 +1,1167 @@
+:root{
+    --main-pink: #FF1455;
+}
+body {
+    font-size: 15px;
+    line-height: 24px;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    background: #F5F5F5;
+    overflow-x: hidden;
+}
+
+html,
+body {
+    height: 100%
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all 0.4s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+fieldset {
+    border: 0 none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.no-padding {
+    padding: 0
+}
+
+.section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.bg-dark {
+    background-color: #21273D;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section-title-1 h2 {
+    margin-top: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #21273D;
+    text-align: center;
+    letter-spacing: 2px;
+    
+}
+
+.section-title h2 {
+    margin-top: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #f5f5f5;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.section-title p {
+    font-weight: 300;
+}
+.title-border{
+    background-color:var(--main-pink);
+    height: 4px;
+    width: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+.btn-custom {
+    background-color:var(--main-pink);
+    border: 1px solid var(--main-pink);
+    color:white;
+    padding: 10px 20px 10px 20px;
+}
+
+.btn-custom:hover {
+    background-color: #21273D;
+    border-color: #21273D;
+    color: #ffffff;
+}
+.about-h4{
+    padding-top: 10px;
+    border:1px solid;
+    padding-bottom: 11px;
+    margin-bottom: 5px;
+    color: white;
+    background-color:var(--main-pink); 
+}
+.about-m-t-0{
+    margin-top:0px;
+}
+
+
+/*
+* ----------------------------------------------------------------------------------------
+* 02.PRELOADER & BOUNCE CCS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.preloader {
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99999;
+}
+
+.status-mes {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -22px 0 0 -22px;
+    font-size: 10px;
+    text-indent: -12345px;
+    border-top: 8px solid #F5F5F5;
+    border-right: 8px solid #F5F5F5;
+    border-bottom: 8px solid #F5F5F5;
+    border-left: 8px solid var(--main-pink);
+    border-radius: 50%;
+    -webkit-animation: spinner 1000ms infinite linear;
+    animation: spinner 1000ms infinite linear;
+    z-index: 10000;
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/*
+* ----------------------------------------------------------------------------------------
+* 03.HOMEPAGE CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.home-area {
+    height: 100%;
+}
+
+
+
+
+.home-image-area {
+    position: relative;
+    height: 100%;
+    /* background-image: url(../images/bg-1.jpg); */
+    background-image: url(../images/1.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.bg-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(31, 33, 36, 0.55);
+}
+
+/*.welcome-image-area:after {
+    position: absolute;
+    background: rgba(3, 169, 244, .4);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+}*/
+
+.display-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.display-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.header-text {
+    padding: 0px 100px;
+    margin-top: 100px;
+}
+
+.header-text img {
+    width: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 2px solid #fff;
+}
+
+.header-text h2 {
+    color: #fff;
+    font-size: 70px;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+.header-text p {
+    color: #fafafa;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.header-top-area {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    background-color: #21273D;
+}
+
+.logo {
+    /* padding-top: 28px; */
+    padding: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.logo span{
+    color: var(--main-pink); 
+}
+.logo img{
+    width: 82px;
+}
+.logo a {
+    display: block;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.mainmenu .navbar-nav li a {
+    color: #fff;
+    font-size: 13px;
+    padding: 30px 15px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.mainmenu .navbar-nav li a:hover {
+    color: var(--main-pink);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.menu-bg .mainmenu .navbar-nav li.active a {
+    color: var(--main-pink);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.nav li a:focus,
+.nav li a:hover {
+    background: none;
+    color: #fff;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.navbar {
+    margin: 0;
+}
+
+.menu-bg {
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.menu-bg .logo {
+    padding-top: 20px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.menu-bg .mainmenu .navbar-nav li a {
+    padding: 20px 15px;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+
+/*
+* ----------------------------------------------------------------------------------------
+* 04.ABOUT CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.about-img img {
+    max-width: 300px;
+    margin-top: 30px;
+    float: right;
+}
+
+.introduce h2 {
+    margin-top: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.introduce p {
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.introduce h4 {
+    color: #0288d1;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.introduce .presonal-inform ul li {
+    width: 50%;
+    float: left;
+}
+
+.introduce .presonal-inform li b {
+    width: 120px;
+    display: inline-block;
+    text-transform: capitalize;
+    color: #1f2124;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.introduce .presonal-inform li {
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;
+     margin-bottom: 20px;
+}
+
+.introduce .presonal-inform li a:hover{
+    color: var(--main-pink);
+}
+
+
+/*
+* ----------------------------------------------------------------------------------------
+* 05.SKILLS CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+
+.team h4,.skill h4 {
+    color: #fff;
+
+}
+.team h5 {
+    color: #9aa7af;
+}
+.skill-chart {
+    margin: 0px auto;
+    color: #fff;
+}
+.skill i {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 06.RESUME CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+.resume-area{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.rs-round {
+    content: "";
+    position: absolute;
+    text-align: center;
+    height: 120px;
+    line-height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    left: 0px;
+    margin-left: -60px;
+    border: 10px solid rgba(255, 255, 255, 0.48);
+    background-color: var(--main-pink);
+   
+}
+
+
+.rs-round i {
+    color: #fff;
+    font-size: 30px;
+}
+.time-line {
+    position: relative;
+}
+.time-line:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    width: 2px;
+    margin: 0 auto;
+    height: 80%;
+    background:var(--main-pink);
+    top: 15px;
+}
+.rex-item{
+    padding-left: 0px;
+    text-align: left;
+    margin-left: 130px;
+    padding-top: 7px;
+
+}
+
+.rex-item h3 {
+    font-size: 22px;
+    color: var(--main-pink);
+}
+.rex-item h4 {
+    font-weight: 600;
+    font-size: 17px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+}
+.rex-item p {
+    line-height: 24px;
+    font-size: 14px;
+    color: white;
+}
+.rex-left {
+    padding-right: 80px;
+    text-align: right;
+}
+.rex-right {
+   
+    text-align: left;
+}
+
+.time-line .colam {
+    margin-bottom: 80px; 
+}
+.rs-round.second {
+    right: 0 !important;
+    left: auto !important;
+    margin-right: -60px !important;
+}
+.colam-tird {
+    margin-bottom: 0px;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 07.SERVICE CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.service-icon {
+    display: inline-block;
+    font-size: 32px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    margin: 15px 0;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    box-shadow: 0 0 3px var(--main-pink);
+    transition: all 0.3s;
+    background: var(--main-pink);
+}
+
+.single-service h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    -webkit-transition: .3s;
+    transition: .3s;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.single-service p {
+    color: black;
+    text-align: center;
+    padding: 15px 8px 0 8px;
+    font-size: 14px;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 08.WORK CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+ 
+#work .lrs-list-protfolio {
+text-align: center;
+}
+#work .lrs-list-protfolio .fil-cat {
+margin: 0 15px;
+padding: 0;
+font-weight: 500;
+cursor: pointer;
+}
+#work .lrs-list-protfolio .fil-cat.active {
+border-bottom: 2px solid var(--main-pink);
+color: var(--main-pink);
+}
+#work .lrs-projects {
+margin-top: 30px;
+position: relative;
+-webkit-column-count: 3;
+/* Chrome, Safari, Opera */
+-moz-column-count: 3;
+/* Firefox */
+column-count: 3;
+-webkit-column-gap: 16px;
+/* Chrome, Safari, Opera */
+-moz-column-gap: 16px;
+/* Firefox */
+column-gap: 16px;
+}
+#work .lrs-projects .lrs-project {
+position: relative;
+cursor: pointer;
+padding: 8px 0;
+-webkit-column-break-inside: avoid;
+page-break-inside: avoid;
+break-inside: avoid;
+}
+#work .lrs-projects .lrs-project .lrs-project-image {
+position: relative;
+}
+#work .lrs-projects .lrs-project .lrs-project-image * {
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-transition: all 0.45s ease;
+transition: all 0.45s ease;
+}
+#work .lrs-projects .lrs-project .lrs-project-content {
+opacity: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.72);
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1;
+color:  var(--main-pink);
+padding: 15px;
+align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+#work .lrs-projects .lrs-project .lrs-project-content .lrs-project-title {
+margin-top: -50px;
+font-weight: 100;
+text-transform: uppercase;
+}
+#work .lrs-projects .lrs-project .lrs-project-content .lrs-project-client {
+margin-top: 100px;
+}
+#work .lrs-projects .lrs-project:hover .lrs-project-content {
+opacity: 1;
+}
+#work .lrs-projects .lrs-project:hover .lrs-project-content .lrs-project-client,
+#work .lrs-projects .lrs-project:hover .lrs-project-content .lrs-project-title {
+margin-top: 0;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 09.TESTIMONIAL CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+
+.single-testimonial h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    -webkit-transition: .3s;
+    transition: .3s;
+    color:var(--main-pink);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.single-testimonial h3 {
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 300;
+    margin-top: 0;
+    color:var(--main-pink);
+}
+
+.single-testimonial p {
+    line-height: 25px;
+    color:#ffffff;
+    font-size: 16px;
+}
+
+.owl-theme .owl-controls .owl-page span {
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin: 5px 7px;
+    border-radius: 20px;
+    background: #ffffff;
+}
+.user-block{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+.client-img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 10.BLOG CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.blog-area {
+    background: #f7f7f7;
+}
+
+.blog-content h2 {
+    font-size: 20px;
+    padding-bottom: 15px
+}
+
+.blog-content .meta-box li {
+    color: #333333;
+    display: inline;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+}
+
+.meta-box li::after {
+    content: "|";
+    margin: 0 10px;
+}
+
+.meta-box li:last-child:after {
+    content: "";
+}
+
+.meta-box span {
+    color: var(--main-pink);
+}
+
+.home_2 .meta-box span {
+    color: #26394e;
+}
+
+.blog-content {
+    background-color: #faf9f9;
+    padding: 19px 30px;
+}
+
+.blog-content p {
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+
+.colblog {
+    padding: 0;
+}
+
+
+
+.blog-img {
+    position: relative;
+}
+
+
+
+/* ----------------------------------------------------------------------------------------
+* 11.CONTACT CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.form-control {
+    border: 0px;
+    height: 45px;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #fff;
+    background-color: transparent;
+    background-image: none;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    box-shadow: none  !important;
+    outline: none !important;
+    margin-bottom: 25px;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    border-color:var(--main-pink);
+    outline: 0;
+    box-shadow: var(--main-pink);
+}
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn.focus:active,
+.btn:active:focus,
+.btn:focus {
+    outline: none;
+
+}
+
+.success {
+    background: #50B948 none repeat scroll 0 0;
+    color: #fff;
+    font-weight: 700;
+    padding: 20px;
+    text-align: center;
+}
+
+textarea{
+    resize: vertical;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 12.FOOTER CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+
+.footer-area {
+    padding: 80px 0px;
+}
+
+.social-links ul {
+    padding: 0;
+    margin: 0;
+}
+
+.social-links ul li {
+    display: inline-block;
+}
+
+.social-links ul li a {
+    font-size: 18px;
+    color: #222222;
+    margin: 10px 5px;
+    display: block;
+}
+.header-links {
+    margin-bottom: 30px;
+}
+.header-links ul li a {
+    color: #000;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+
+.header-links ul li a:hover {
+    color: var(--main-pink);
+}
+.footer-link{
+    background: #21273D;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+}
+
+.footer-area p {
+    color: #222222;
+    margin: 10px 0 0 0;
+}  
+.vertical-content {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 13.AUTHORIZATION CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+.authorization-container {
+    width: 50%;
+    margin: auto;
+}
+.authorization-container h2{
+    color: rgb(33, 39, 61);
+}
+.register-form .form-control, .login-form .form-control{
+    border-bottom: 2px solid rgb(33, 39, 61) !important;
+    color: rgb(33, 39, 61);
+}
+.register-form .form-control:focus, .login-form .form-control:focus {
+    border-color:var(--main-pink) !important;
+    outline: 0;
+    box-shadow: var(--main-pink) !important;
+}
+#university_name{
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+}
+.back-btn:hover{
+    color: var(--main-pink);
+}
+@media (max-width: 768px){
+.vertical-content {
+  display: inherit;
+}
+}
+
+@media only screen and (max-width: 767px) {
+.time-line {
+    position: relative;
+}
+.time-line:before {        
+    margin-left: 52px;
+}
+.rex-item h3 {
+    font-size: 20px;
+}
+.rex-item h4 {
+    font-size: 15px;
+}
+.rex-item p {
+    font-size: 13px;
+}
+.rex-left {
+    padding-right: 15px;
+    text-align: right;
+}
+.rex-right {
+    padding-left: 15px;
+}
+.rex-item {
+    padding-left: 0px;
+    text-align: left;
+    margin-left: 130px;
+}
+.rs-round {
+    left: 15px;
+    margin: 0px !important;
+    height: 105px;
+    line-height: 105px;
+    width: 105px;
+}
+.rs-round.second {
+    margin: 0px !important;
+    left: 15px !important;
+    right: 0px !important;
+}
+.blog-img {
+    display: none;
+}
+}
+
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+.single-project-done {
+    text-align: center;
+}
+.about-image img {
+    margin-top: 30px;
+}
+.single-testimonial p {
+    padding: 0 50px;
+}
+.single-contact-details i {
+    margin-bottom: 20px;
+}
+.single-project-complete {
+    margin-bottom: 30px;
+}
+.single-service,
+.single-blog {
+    margin-bottom: 30px;
+}
+.about-text {
+    padding-top: 0px;
+    margin-top: 30px;
+}
+.logo {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.navbar-nav {
+    width: 100%;
+    text-align: center;
+}
+.navbar-nav li {
+    float: none;
+    display: inline-block;
+}
+.about-text p,
+.about-text ul {
+    padding: 0;
+}
+.resume-left h2 {
+    width: 130px;
+}
+.single-service i{
+    margin-bottom: 110px;
+}
+}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+    .site-header .navbar-collapse {
+        opacity: 1;
+        visibility: visible;
+    }
+    .navbar-toggle .icon-bar {
+        background: #fff;
+    }
+    .navbar-toggle {
+        /* margin-top: -26px; */
+        margin-top: -60px;
+        margin-right: 0;
+    }
+    .navbar {
+        min-height: 0px;
+    }
+    .mainmenu .navbar-nav li a {
+        padding: 11px 15px;
+    }
+    .menu-bg .mainmenu .navbar-nav li a {
+        padding: 11px 15px;
+    }
+    .navbar-fixed-bottom .navbar-collapse,
+    .navbar-fixed-top .navbar-collapse {
+        max-height: 420px;
+    }
+    .navbar-collapse {
+        background: rgba(0, 0, 0, .9);
+    }
+    .menu-bg .navbar-collapse {
+        background: rgba(0, 0, 0, .9);
+    }
+    .welcome-image-area,
+    .welcome-video-area {
+        padding-top: 120px;
+    }
+    .welcome-image-area h2,
+    .single-slide-item h2,
+    .welcome-video-area h2 {
+        font-size: 35px;
+    }
+    .header-text h1 {
+        font-size: 30px;
+    }
+    .section-title h2 {
+        font-size: 30px;
+    }
+    .single-project-complete h2 {
+        font-size: 40px;
+    }
+    .single-testimonial p {
+        padding: 0 10px;
+    }
+    .single-project-done {
+        text-align: center;
+    }
+    .footer-area p,
+    .actions,
+    .footer-social-link {
+        text-align: center;
+    }
+    .header-text p {
+        font-size: 16px;
+        padding: 0;
+        line-height: 28px;
+    }
+    .header-text .home-arrow-down {
+        bottom: -90px;
+    }
+    .about-text {
+        padding-top: 0px;
+    }
+    .about-text h3 {
+        margin-bottom: 20px;
+    }
+    .single-project-complete {
+        margin-bottom: 50px;
+    }
+    .single-contact-details i {
+        margin-bottom: 20px;
+    }
+    .single-service,
+    .single-blog {
+        margin-bottom: 30px;
+    }
+    #map {
+        margin-top: 20px;
+    }
+    .item .grid figure,
+    .work .grid figure {
+        min-width: 100%;
+    }
+    .about-text {
+        padding-top: 0px;
+        margin-top: 30px;
+    }
+    .single-service i {
+        margin-bottom: 105px;
+    }
+    .header-text {
+        padding: 0;
+        margin-top: 50px;
+    }
+    .header-text h2 {
+        font-size: 36px;
+    }
+    .area-shadow {
+        padding: 30px;
+    }
+    .about-text p {
+        padding: 0px;
+    }
+    .about-text ul {
+        padding: 0px;
+    }
+    .single-resume {
+        margin-bottom: 50px;
+    }
+    #work .lrs-projects {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 10px;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+    }
+    .introduce .presonal-inform ul li {
+        width: 100%;
+    }
+    .about-img img {
+        float: none;
+    }
+    .logo {
+        /* padding-top: 17px; */
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #work .lrs-projects {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-gap: 10px;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+    }
+}
