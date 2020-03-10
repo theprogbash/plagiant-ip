@@ -1,13 +1,34 @@
+from .models import Account, University
+from .forms import SignUpForm, SignInForm
 from django.shortcuts import render, redirect
-from .models import Account
+from django.contrib.auth import authenticate
+
 
 def index(request):
     return render(request, 'index.html', {})
 
-def register(request):
-    return render(request, 'register.html', {})
 
-def login(request):
-    return render(request, 'login.html', {})
+def sign_up(request):
+    context = {}
+    form = SignUpForm(request.POST or None, request.FILES or None)
 
-    
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    else:
+        form = SignUpForm(request.POST or None, request.FILES or None)
+    context['form'] = form
+    return render(request, "sign_up.html", context)
+
+
+def sign_in(request):
+    context = {}
+    form = SignInForm(request.POST or None, request.FILES or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('/')
+    else:
+        form = SignInForm(request.POST or None, request.FILES or None)
+    context['form'] = form
+    return render(request, "sign_in.html", context)

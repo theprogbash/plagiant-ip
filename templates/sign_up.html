@@ -69,47 +69,20 @@
                     <!-- START contect -->
                     <div class="register-form">
                         <form id="register-form" method="post">
+                            {% csrf_token %}
                             <div class="row">
+                                {% for field in form %}
                                 <div class="form-group col-md-12">
-                                    <input autocomplete="off" type="text" name="first_name" class="form-control" id="first_name" placeholder="Ad"
-                                        required="required">
+                                    {% if field.name == 'isPhysicalAccount' %}
+                                        {{ field.label_tag }}
+                                    {% endif %}
+                                    &nbsp;{{ field }}
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <input autocomplete="off" type="text" name="last_name" class="form-control" id="last_name"
-                                        placeholder="Soyad" required="required">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <input autocomplete="off" type="email" name="email" class="form-control" id="email"
-                                        placeholder="Elektron Poçt" required="required">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <input autocomplete="off" type="text" name="username" class="form-control" id="username"
-                                        placeholder="İstifadəçi adı" required="required">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <input autocomplete="off" type="password" name="password" class="form-control" id="password"
-                                        placeholder="Şifrə" required="required">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <input autocomplete="off" type="password" name="confirm_password" class="form-control"
-                                        id="confirm_password" placeholder="Şifrənizi təkrar daxil edin"
-                                        required="required">
-                                </div>
-                                <div class="form-group col-md-12 university_dropdown_container">
-                                    <select name="university_name" id="university_name" class="form-control">
-                                        <option value="">Universitet</option>
-                                        <option value="">BDU</option>
-                                        <option value="">AzTU</option>
-                                        <option value="">ADİU</option>
-                                        <option value="">ADNSU</option>
-                                    </select>
-                                    <label for="physical_Account">Şəxsi istifadəçiyəm</label>&nbsp;
-                                    <input type="checkbox" name="physical_Account" id="physical_Account">
-                                </div>
+                                {% endfor %}
                                 <div class="form-group col-md-12 text-center">
                                     <div class="actions">
-                                        <input type="submit" value="Qeydiyyat" name="register_btn" id="registerButton"
-                                            class="btn btn-custom" title="Qeydiyyatdan keç">
+                                        <input type="submit" value="Qeydiyyatdan keç" name="register_btn"
+                                            id="registerButton" class="btn btn-custom" title="Qeydiyyatdan keç">
                                     </div>
                                 </div>
                             </div>

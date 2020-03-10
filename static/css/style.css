@@ -11,6 +11,17 @@ body {
     overflow-x: hidden;
 }
 
+p::selection, 
+h2::selection, 
+h3::selection, 
+li::selection, 
+a::selection, 
+input::selection, 
+span::selection{
+    color: white;
+    background: var(--main-pink);
+}
+
 html,
 body {
     height: 100%
@@ -123,6 +134,7 @@ fieldset {
     background-color: #21273D;
     border-color: #21273D;
     color: #ffffff;
+    transition: .3s ease;
 }
 .about-h4{
     padding-top: 10px;

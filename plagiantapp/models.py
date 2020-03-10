@@ -10,14 +10,13 @@ class University(models.Model):
         return self.name
 
 class Account(models.Model):
-    first_name = models.TextField(max_length=30)
-    last_name = models.TextField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     email = models.EmailField(max_length=60)
-    username = models.TextField(max_length=30)
-    password = models.TextField(max_length=60)
-    confirm_password = models.TextField(max_length=60)
+    username = models.CharField(max_length=30)
+    password = models.CharField(max_length=60)
+    university_name = models.ForeignKey(University, on_delete=models.CASCADE, blank=True, null=True)
     isPhysicalAccount = models.BooleanField(default=False)
-    university_name = models.ForeignKey(University, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.username
