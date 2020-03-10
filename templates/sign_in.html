@@ -69,7 +69,8 @@
                     <!-- START contect -->
                     <div class="login-form">
                         <form id="login-form" method="post">
-                            <!-- <div class="row">
+                            {% csrf_token %}
+                            <div class="row">
                                 <div class="form-group col-md-12">
                                     <input autocomplete="off" type="text" name="username" class="form-control" id="username"
                                         placeholder="İstifadəçi adı" required="required">
@@ -84,8 +85,8 @@
                                             class="btn btn-custom" title="Daxil ol">
                                     </div>
                                 </div>
-                            </div> -->
-                            {% csrf_token %}
+                            </div>
+                            <!-- {% csrf_token %}
                             <div class="row">
                                 {% for field in form %}
                                 <div class="form-group col-md-12">
@@ -94,11 +95,11 @@
                                 {% endfor %}
                                 <div class="form-group col-md-12 text-center">
                                     <div class="actions">
-                                        <input type="submit" value="Qeydiyyatdan keç" name="register_btn"
-                                            id="registerButton" class="btn btn-custom" title="Qeydiyyatdan keç">
+                                        <input type="submit" value="Daxil ol" name="login_btn"
+                                            id="loginButton" class="btn btn-custom" title="Daxil ol">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>
