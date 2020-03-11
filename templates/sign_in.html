@@ -86,22 +86,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- {% csrf_token %}
-                            <div class="row">
-                                {% for field in form %}
-                                <div class="form-group col-md-12">
-                                    {{ field }}
-                                </div>
-                                {% endfor %}
-                                <div class="form-group col-md-12 text-center">
-                                    <div class="actions">
-                                        <input type="submit" value="Daxil ol" name="login_btn"
-                                            id="loginButton" class="btn btn-custom" title="Daxil ol">
-                                    </div>
-                                </div>
-                            </div> -->
                         </form>
                     </div>
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
                 </div>
             </div>
             <!--end container-->

@@ -118,9 +118,13 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="header-text text-center">
-                                    <h1 style="color:white">Salam, {{ user.username }} !</h1>
-                                    <h2 style="text-transform: lowercase;">plagiant.az</h2>
+                                    {% if user.is_authenticated %}
+                                        <h1 style="color:white; text-transform: capitalize;">Salam, {{ user.username }} !</h1>
+                                    {% endif %}
+                                    <h2 style="text-transform: lowercase; margin-bottom: 20px;">plagiant.az</h2>
+                                    {% if not user.is_authenticated %}
                                     <p>Test etmək üçün elə indi qeydiyyatdan keçin !</p>
+                                    {% endif %}
                                     <div class="social-links header-links">
                                         <ul>
                                             <li><a href=""><i class="fa fa-facebook"></i></a></li>
@@ -129,8 +133,13 @@
                                             <li><a href=""><i class="fa fa-phone"></i></a></li>
                                         </ul>
                                     </div>
-                                    <a class="btn btn-custom smoth-scroll" href="/sign_in">Daxil Ol</a>
-                                    <a class="btn btn-custom smoth-scroll" href="/sign_up">Qeydiyyat</a>
+                                    {% if user.is_authenticated %}
+                                        <a class="btn btn-custom smoth-scroll" href="/sign_out">Hesabdan Çıx</a>
+                                    {% else %}
+                                        <a class="btn btn-custom smoth-scroll" href="/sign_in">Daxil Ol</a>
+                                        <a class="btn btn-custom smoth-scroll" href="/sign_up">Qeydiyyat</a>
+                                    {% endif %}
+                                    <a href="/upload_document" class="btn btn-custom smoth-scroll">Yoxlamaya başla!</a>
                                 </div>
                             </div>
                         </div>

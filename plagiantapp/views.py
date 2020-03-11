@@ -1,36 +1,48 @@
-from .models import Account, University
-from .forms import SignUpForm, SignInForm
-from django.contrib.auth.forms import AuthenticationForm
+from .models import University
+from .forms import CreateUserForm
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def index(request):
     return render(request, 'index.html', {})
 
 def sign_up(request):
-    context = {}
-    form = SignUpForm(request.POST or None, request.FILES or None)
+    form = CreateUserForm()
 
-    if form.is_valid():
-        form.save()
-        return redirect('/')
-    else:
-        form = SignUpForm(request.POST or None, request.FILES or None)
-    context['form'] = form
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('first_name')
+            messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
+            return redirect('sign_in')
+    context = {'form':form}
     return render(request, "sign_up.html", context)
 
-
 def sign_in(request):
-    context = {}
-    form = SignInForm(request.POST or None, request.FILES or None)
 
-    if form.is_valid():
-        return redirect('/')
-    else:
-        form = SignInForm(request.POST or None, request.FILES or None)
-    context['form'] = form
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+    
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'İstifadəçi adı və ya parol yanlışdır.')
+
+    context = {}
     return render(request, "sign_in.html", context)
 
 def sign_out(request):
     logout(request)
     return redirect('/')    
+
+@login_required(login_url='sign_in')
+def upload_document(request):
+    return render(request, 'upload_document.html', {})

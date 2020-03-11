@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class University(models.Model):
     name = models.TextField(max_length=150)
     logo = models.ImageField(upload_to='static/images/university_logo')
@@ -11,17 +10,3 @@ class University(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Account(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=60)
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=60)
-    university_name = models.ForeignKey(
-        University, on_delete=models.CASCADE, blank=True, null=True)
-    isPhysicalAccount = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.username
