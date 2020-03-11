@@ -10,34 +10,38 @@ def index(request):
     return render(request, 'index.html', {})
 
 def sign_up(request):
-    form = CreateUserForm()
-
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('first_name')
-            messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
-            return redirect('sign_in')
-    context = {'form':form}
-    return render(request, "sign_up.html", context)
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('first_name')
+                messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
+                return redirect('sign_in')
+        context = {'form':form}
+        return render(request, "sign_up.html", context)
 
 def sign_in(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+        
+            user = authenticate(request, username=username, password=password)
 
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-    
-        user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+            else:
+                messages.info(request, 'İstifadəçi adı və ya parol yanlışdır.')
 
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-        else:
-            messages.info(request, 'İstifadəçi adı və ya parol yanlışdır.')
-
-    context = {}
-    return render(request, "sign_in.html", context)
+        context = {}
+        return render(request, "sign_in.html", context)
 
 def sign_out(request):
     logout(request)
