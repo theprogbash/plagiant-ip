@@ -1,11 +1,178 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="plagiarism, plagiat, plagiant, plaqiat">
+    <meta name="author" content="Kamran Mammadov">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+
+    <!-- PAGE TITLE -->
+    <title>plagiant - check my docs.</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- ALL GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet">
+
+    <!-- FONT AWESOME CSS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pe-icon-7-stroke.css' %}">
+
+    <!-- OWL CAROSEL CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
+
+    <!-- MAGNIFIC CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <!-- Circliful CSS -->
+    <link rel="stylesheet" href="{% static 'css/jquery.circliful.css' %}">
+
+    <!-- ANIMATE CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/effects.css' %}">
+    <link rel="stylesheet" href="{% static 'css/YTPlayer.css' %}">
+
+    <!-- MAIN STYLE CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- UPLOAD DOC PAGE CSS -->
+    <link rel="stylesheet" href="{% static 'css/upload-document.css' %}">
+</head>
+
 <body>
-    <h1>UPLOAD DOCUMENT</h1>
+
+    <!-- #region PRELOADER -->
+    <div class="preloader">
+        <div class="status">
+            <div class="status-mes"></div>
+        </div>
+    </div>
+    <!--  #endregion PRELOADER -->
+
+    <!-- #region ANA SƏHİFƏ -->
+    <header id="home" class="home-area">
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        <!-- START LOGO -->
+                        <div class="logo">
+                            <!-- <a href="index.html"><span>pla</span>giant</a> -->
+                            <a href="index.html"><img src="./images/plagiant-logos/logo_transparent.png" alt=""></a>
+                        </div>
+                        <!-- END LOGO -->
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <!-- START MENU   -->
+                        <div class="mainmenu">
+                            <div class="navbar navbar-nobg">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                        data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="active"><a class="smoth-scroll" href="#home">Ana Səhifə <div
+                                                    class="ripple-wrapper"></div></a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#about">Haqqımızda</a>
+                                        </li>
+                                        <!--<li><a class="smoth-scroll" href="#skills">skills</a></li>-->
+                                        <li><a class="smoth-scroll" href="#resume">Qaydalar</a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#service">Xidmətlər</a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#clients">Müştərilər</a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#blog">Bloq</a>
+                                        </li>
+                                        <li><a class="smoth-scroll" href="#contact">Əlaqə</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END MENU   -->
+                    </div>
+                </div>
+                <!--end row-->
+            </div>
+            <!--end container-->
+        </div>
+    </header>
+    <!--  #endregion -->
+
+    <!-- #region PLAYGROUND -->
+    <div class="container">
+        <div class="upload-area">
+            <h4>Yoxlanacaq sənədi aşağıdakı "Yüklə" düyməsinə klikləyərək seçin. Daha ətraflı təlimat üçün <a href="#"
+                    class="read-more-link">bu səhifəyə</a> keçid edə bilərsiniz.</h4>
+            <label for="upload-document" class="upload-document-label">Yüklə</label>
+            <input type="file" name="upload-document" id="upload-document" />
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region FOOTER -->
+    <footer class="footer-area">
+        <div class="container footer-shadow">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div class="social-links">
+                        <ul>
+                            <li><a href=""><i class="fa fa-facebook footer-link"></i></a></li>
+                            <li><a href=""><i class="fa fa-instagram footer-link"></i></a></li>
+                            <li><a href=""><i class="fa fa-envelope footer-link"></i></a></li>
+                            <li><a href=""><i class="fa fa-phone footer-link"></i></a></li>
+                        </ul>
+                    </div>
+                    <p class="copyright">© 2020. Powered by pineapple.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- #endregion -->
+
+    <!-- #region SCRIPTS -->
+    <!-- LATEST JQUERY -->
+    <script src="js/jquery.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--gallary-->
+    <script src="js/gallery.js"></script>
+    <script src="js/mansory.js"></script>
+    <!-- OWL CAROUSEL JS  -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- MIXITUP JS -->
+    <script src="js/jquery.mixitup.js"></script>
+    <!-- PARALLAX JS -->
+    <script src="js/jquery.stellar.min.js"></script>
+    <!-- MAGNIFICANT JS -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- EasyPieChart -->
+    <script src="js/jquery.circliful.min.js"></script>
+    <!-- CONTACT FORM JS -->
+    <script src="js/form-contact.js"></script>
+    <!-- SCRIPT JS -->
+    <script src="js/scripts.js"></script>
+    <!-- #endregion -->
 </body>
+
 </html>
