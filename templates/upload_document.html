@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- UPLOAD DOC PAGE CSS -->
-    <link rel="stylesheet" href="{% static 'css/upload-document.css' %}">
+    <link rel="stylesheet" href="{% static 'css/upload_document.css' %}">
 </head>
 
 <body>
@@ -68,7 +68,7 @@
                         <!-- START LOGO -->
                         <div class="logo">
                             <!-- <a href="index.html"><span>pla</span>giant</a> -->
-                            <a href="index.html"><img src="./images/plagiant-logos/logo_transparent.png" alt=""></a>
+                            <a href="/"><img src="{% static 'images/plagiant-logos/logo_transparent.png' %}" alt=""></a>
                         </div>
                         <!-- END LOGO -->
                     </div>
@@ -151,27 +151,27 @@
 
     <!-- #region SCRIPTS -->
     <!-- LATEST JQUERY -->
-    <script src="js/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <!-- BOOTSTRAP JS -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!--gallary-->
-    <script src="js/gallery.js"></script>
-    <script src="js/mansory.js"></script>
+    <script src="{% static 'js/gallery.js' %}"></script>
+    <script src="{% static 'js/mansory.js' %}"></script>
     <!-- OWL CAROUSEL JS  -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <!-- MIXITUP JS -->
-    <script src="js/jquery.mixitup.js"></script>
+    <script src="{% static 'js/jquery.mixitup.js' %}"></script>
     <!-- PARALLAX JS -->
-    <script src="js/jquery.stellar.min.js"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
     <!-- MAGNIFICANT JS -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
     <!-- EasyPieChart -->
-    <script src="js/jquery.circliful.min.js"></script>
+    <script src="{% static 'js/jquery.circliful.min.js' %}"></script>
     <!-- CONTACT FORM JS -->
-    <script src="js/form-contact.js"></script>
+    <script src="{% static 'js/form-contact.js' %}"></script>
     <!-- SCRIPT JS -->
-    <script src="js/scripts.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
     <!-- #endregion -->
 </body>
 
