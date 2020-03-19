@@ -8,7 +8,7 @@
 
 .upload-area{
     border: 5px dashed var(--main-blue);
-    height: 200px;
+    height: auto;
     padding: 0px 10px;
     margin-top: 100px;
     margin-bottom: 40px;
@@ -58,4 +58,25 @@
 }
 .footer-area p{
     color: white;
+}
+
+.upload-document-container {
+    width: 80%;
+    margin: auto;
+}
+.upload-document-container h2{
+    color: rgb(33, 39, 61);
+}
+.upload-document-form .form-control{
+    border-bottom: 2px solid rgb(33, 39, 61) !important;
+    color: rgb(33, 39, 61);
+}
+.upload-document-form .form-control:focus {
+    border-color:var(--main-pink) !important;
+    outline: 0;
+    box-shadow: var(--main-pink) !important;
+}
+#university{
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
 }

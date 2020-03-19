@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 
 <head>
     <!-- META -->
@@ -122,8 +122,49 @@
         <div class="upload-area">
             <h4>Yoxlanacaq sənədi aşağıdakı "Yüklə" düyməsinə klikləyərək seçin. Daha ətraflı təlimat üçün <a href="#"
                     class="read-more-link">bu səhifəyə</a> keçid edə bilərsiniz.</h4>
-            <label for="upload-document" class="upload-document-label">Yüklə</label>
-            <input type="file" name="upload-document" id="upload-document" />
+
+            <section class="section bg-light">
+                <div class="upload-document-container area">
+                    <div class="row">
+                        <div class="form-group col-md-12 text-left">
+                            <div class="actions">
+                                <a href="/" class="back-btn"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Sayta geri
+                                    dön</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="section-title">
+                                <h2>Yoxlanacaq Sənədin Detalları</h2>
+                                <div class="title-border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <!-- START contect -->
+                            <div class="upload-document-form">
+                                <form id="upload-document-form" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <!-- {% for field in form %}
+                                    <div class="form-group col-md-12">
+                                        {{ field }}
+                                    </div>
+                                    {% endfor %} -->
+                                    <div class="form-group col-md-12 text-center">
+                                        <div class="actions">
+                                            <input type="submit" value="Yoxla !" name="check_btn" id="checkButton"
+                                                class="btn btn-custom" title="Yoxlamaya başla">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container-->
+                </div>
+                <!--end container-->
+            </section>
         </div>
     </div>
     <!-- #endregion -->
@@ -172,6 +213,7 @@
     <script src="{% static 'js/form-contact.js' %}"></script>
     <!-- SCRIPT JS -->
     <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/custom_selectbox.js' %}"></script>
     <!-- #endregion -->
 </body>
 

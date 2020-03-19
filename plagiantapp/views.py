@@ -1,5 +1,5 @@
-from .models import University
-from .forms import CreateUserForm
+from .models import University, OriginalDocument
+from .forms import CreateUserForm, UploadDocumentForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -49,4 +49,14 @@ def sign_out(request):
 
 @login_required(login_url='sign_in')
 def upload_document(request):
-    return render(request, 'upload_document.html', {})
+    context = {}
+    form = UploadDocumentForm()
+    if request.method == 'POST':
+        form = UploadDocumentForm(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            form.save()
+            # user = form.cleaned_data.get('first_name')
+            # messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
+            return redirect('index')
+    context = {'form':form}
+    return render(request, 'upload_document.html', context)
