@@ -145,12 +145,12 @@
                             <div class="upload-document-form">
                                 <form id="upload-document-form" method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
-                                    {{ form.as_p }}
-                                    <!-- {% for field in form %}
+                                    <!-- {{ form.as_p }} -->
+                                    {% for field in form %}
                                     <div class="form-group col-md-12">
                                         {{ field }}
                                     </div>
-                                    {% endfor %} -->
+                                    {% endfor %}
                                     <div class="form-group col-md-12 text-center">
                                         <div class="actions">
                                             <input type="submit" value="Yoxla !" name="check_btn" id="checkButton"
