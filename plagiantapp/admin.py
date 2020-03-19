@@ -7,6 +7,7 @@ class UniversityAdmin(admin.ModelAdmin):
 
 class OriginalDocumentAdmin(admin.ModelAdmin):
     list_display = ('document_title', 'student_name', 'teacher_name', 'university', 'date_added', 'document_type', 'checked_by')
+    
 
 admin.site.site_header = "plagiant.az - Admin Dashboard" 
 admin.site.register(University, UniversityAdmin)

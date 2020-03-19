@@ -9,7 +9,7 @@ class UploadDocumentForm(ModelForm):
         model = OriginalDocument
         fields = '__all__'
         exclude = ['date_added', 'checked_by']
-    
+
     def __init__(self, *args, **kwargs):
         super(UploadDocumentForm, self).__init__(*args, **kwargs)
     
@@ -67,6 +67,7 @@ class UploadDocumentForm(ModelForm):
         self.fields['university'].widget.attrs['type'] = 'text'
         self.fields['university'].widget.attrs['name'] = 'university'
 
+        
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
