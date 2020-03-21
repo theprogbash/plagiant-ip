@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+
 def index(request):
     return render(request, 'index.html', {})
 
@@ -19,9 +20,10 @@ def sign_up(request):
             if form.is_valid():
                 form.save()
                 user = form.cleaned_data.get('first_name')
-                messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
+                messages.success(
+                    request, user + ', sizin, plagiant hesabınız yaradıldı.')
                 return redirect('sign_in')
-        context = {'form':form}
+        context = {'form': form}
         return render(request, "sign_up.html", context)
 
 def sign_in(request):
@@ -31,7 +33,7 @@ def sign_in(request):
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
-        
+
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
@@ -45,7 +47,7 @@ def sign_in(request):
 
 def sign_out(request):
     logout(request)
-    return redirect('/')    
+    return redirect('/')
 
 @login_required(login_url='sign_in')
 def upload_document(request):
@@ -55,13 +57,16 @@ def upload_document(request):
         form = UploadDocumentForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             form.save()
-            # user = form.cleaned_data.get('first_name')
-            # messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
             return redirect('result')
-    context = {'form':form}
+    context = {
+        'form': form,
+    }
     return render(request, 'upload_document.html', context)
 
 @login_required(login_url='sign_in')
 def result(request):
-    context = {}
+    last_uploaded = OriginalDocument.objects.latest('id')
+    context = {
+        'last_uploaded': last_uploaded
+    }
     return render(request, 'result.html', context)

@@ -67,7 +67,6 @@ class UploadDocumentForm(ModelForm):
         self.fields['university'].widget.attrs['type'] = 'text'
         self.fields['university'].widget.attrs['name'] = 'university'
 
-        
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
