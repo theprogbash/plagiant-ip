@@ -57,6 +57,11 @@ def upload_document(request):
             form.save()
             # user = form.cleaned_data.get('first_name')
             # messages.success(request, user + ', sizin, plagiant hesabınız yaradıldı.')
-            return redirect('index')
+            return redirect('result')
     context = {'form':form}
     return render(request, 'upload_document.html', context)
+
+@login_required(login_url='sign_in')
+def result(request):
+    context = {}
+    return render(request, 'result.html', context)

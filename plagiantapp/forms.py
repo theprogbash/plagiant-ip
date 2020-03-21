@@ -63,7 +63,7 @@ class UploadDocumentForm(ModelForm):
         self.fields['university'].widget.attrs['class'] = 'form-control'
         self.fields['university'].widget.attrs['placeholder'] = 'Universitet'
         self.fields['university'].widget.attrs['autocomplete'] = 'off'
-        self.fields['university'].widget.attrs['required'] = 'required'
+        # self.fields['university'].widget.attrs['required'] = 'required'
         self.fields['university'].widget.attrs['type'] = 'text'
         self.fields['university'].widget.attrs['name'] = 'university'
 

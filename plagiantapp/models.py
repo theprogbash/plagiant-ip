@@ -19,10 +19,9 @@ class OriginalDocument(models.Model):
     student_name = models.CharField(max_length=100)
     teacher_name = models.CharField(max_length=100)
     document_type = models.CharField(max_length=100)
-    university = models.ForeignKey(University, on_delete=models.CASCADE)
+    university = models.ForeignKey(University, on_delete=models.CASCADE, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add = True)
     checked_by = CurrentUserField()
 
     def __str__(self):
         return self.document_title
-

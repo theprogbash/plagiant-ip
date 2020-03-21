@@ -12,12 +12,16 @@ body {
 }
 
 p::selection, 
+h1::selection,
 h2::selection, 
 h3::selection, 
 li::selection, 
 a::selection, 
 input::selection, 
-span::selection{
+span::selection,
+div::selection,
+img::selection, 
+textarea::selection{
     color: white;
     background: var(--main-pink);
 }
