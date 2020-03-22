@@ -471,6 +471,17 @@ fieldset {
     background-color: var(--main-blue);
     color: #fff;
 }
+.algorithm-title{
+    display: inline-block;
+    margin-right: 10px;
+}
+.fa-info-circle{
+    color: var(--main-blue);
+}
+.fa-info-circle:hover{
+    color: var(--main-pink);
+    transition: .5s;
+}
 
 .team h4,.skill h4 {
     color: var(--main-blue);
