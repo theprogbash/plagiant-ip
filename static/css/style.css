@@ -136,7 +136,7 @@ fieldset {
 .btn-custom {
     background-color:var(--main-pink);
     border: 1px solid var(--main-pink);
-    color:white;
+    color:white !important;
     padding: 10px 20px 10px 20px;
 }
 
@@ -472,6 +472,11 @@ fieldset {
     background-color: var(--main-blue);
     color: #fff;
 }
+.detailed-report-header{
+    display: flex;
+    justify-content: space-between;
+}
+
 .algorithm-title{
     display: inline-block;
     margin-right: 10px;
