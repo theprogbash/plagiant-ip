@@ -444,6 +444,10 @@ fieldset {
     color: var(--main-blue);
 }
 
+.document-details{
+    padding-bottom: 60px;
+}
+
 .team h4,.skill h4 {
     color: var(--main-blue);
 
