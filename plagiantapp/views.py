@@ -70,7 +70,7 @@ def result(request):
 
     original = open(str(last_uploaded.document), 'r')
     original_words = original.read().lower().split()
-    result = open("static/original_document/outfile2.txt", 'w')
+    report = open("static/report_documents/" + str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
@@ -87,7 +87,6 @@ def result(request):
     for each_file in files:
         other_docs = open(each_file, 'r')
         other_docs_words = other_docs.read().lower().split()
-        print(other_docs_words)
 
         for i in range(len(other_docs_words) - 4):
             for j in range(len(other_docs_words)+1):
@@ -96,7 +95,7 @@ def result(request):
                     for original_each_five in iterate():
                         if(original_each_five == each_five_others):
                             found_count += 1
-                            result.write('{} hissəsi {} sənədində tapıldı.\n'.format(
+                            report.write('{} hissəsi {} sənədində tapıldı.\n'.format(
                                 original_each_five, each_file))
                         else:
                             pass
@@ -108,14 +107,16 @@ def result(request):
 
     percentage = found_count/fives_count
     rounded_percentage = round(percentage, 2)*100
+    percentage_for_chart = round(rounded_percentage)
 
-    result.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
+    report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
 
     context = {
         'last_uploaded': last_uploaded,
         'found_count': found_count,
         'fives_count': fives_count,
-        'rounded_percentage': rounded_percentage
+        'rounded_percentage': rounded_percentage,
+        'percentage_for_chart': percentage_for_chart
     }
-    
+
     return render(request, 'result.html', context)

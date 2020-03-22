@@ -1,5 +1,6 @@
 :root{
     --main-pink: #FF1455;
+    --main-blue: #21273D;
 }
 body {
     font-size: 15px;
@@ -14,7 +15,8 @@ body {
 p::selection, 
 h1::selection,
 h2::selection, 
-h3::selection, 
+h3::selection,
+h4::selection, 
 li::selection, 
 a::selection, 
 input::selection, 
@@ -438,9 +440,12 @@ fieldset {
 * ----------------------------------------------------------------------------------------
 */
 
+#report .section-title h2{
+    color: var(--main-blue);
+}
 
 .team h4,.skill h4 {
-    color: #fff;
+    color: var(--main-blue);
 
 }
 .team h5 {
@@ -448,7 +453,7 @@ fieldset {
 }
 .skill-chart {
     margin: 0px auto;
-    color: #fff;
+    color: var(--main-blue);
 }
 .skill i {
     font-size: 20px;
