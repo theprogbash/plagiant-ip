@@ -99,6 +99,7 @@ def result(request):
 
                             fives_for_report.append(original_each_five)
                             founded_docs_for_report.append(each_file)
+                            rows = zip(fives_for_report, founded_docs_for_report)
                             
                             found_count += 1
                             report.write('{} hissəsi {} sənədində tapıldı.\n'.format(
@@ -124,7 +125,8 @@ def result(request):
         'rounded_percentage': rounded_percentage,
         'percentage_for_chart': percentage_for_chart,
         'fives_for_report': fives_for_report,
-        'founded_docs_for_report': founded_docs_for_report
+        'founded_docs_for_report': founded_docs_for_report,
+        'rows': rows
     }
 
     return render(request, 'result.html', context)

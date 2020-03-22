@@ -448,6 +448,13 @@ fieldset {
 .document-details{
     padding-bottom: 60px;
 }
+.detailed-report{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    padding: 40px 0px;
+    border-radius: 4px;
+}
 
 .team h4,.skill h4 {
     color: var(--main-blue);
