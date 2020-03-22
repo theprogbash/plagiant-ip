@@ -75,6 +75,8 @@ def result(request):
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
 
+    fives_for_report, founded_docs_for_report = [], []
+
     def iterate():
         for i in range(len(original_words) - 4):
             for j in range(len(original_words)+1):
@@ -94,6 +96,10 @@ def result(request):
                     each_five_others = other_docs_words[i:j]
                     for original_each_five in iterate():
                         if(original_each_five == each_five_others):
+
+                            fives_for_report.append(original_each_five)
+                            founded_docs_for_report.append(each_file)
+                            
                             found_count += 1
                             report.write('{} hissəsi {} sənədində tapıldı.\n'.format(
                                 original_each_five, each_file))
@@ -116,7 +122,9 @@ def result(request):
         'found_count': found_count,
         'fives_count': fives_count,
         'rounded_percentage': rounded_percentage,
-        'percentage_for_chart': percentage_for_chart
+        'percentage_for_chart': percentage_for_chart,
+        'fives_for_report': fives_for_report,
+        'founded_docs_for_report': founded_docs_for_report
     }
 
     return render(request, 'result.html', context)

@@ -189,7 +189,25 @@
             </div>
 
             <div class="row detailed-report">
-                
+                <div class="col-md-6">
+                    <div class="row text-right">
+                    {% for each_five in fives_for_report %}
+                        <div class="col-md-12">
+                            <p>{{ each_five }}</p>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row text-left">
+                        {% for founded_doc in founded_docs_for_report %}
+                            <div class="col-md-12">
+                                <p>{{ founded_doc }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </section>
