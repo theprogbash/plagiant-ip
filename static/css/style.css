@@ -484,7 +484,10 @@ fieldset {
     color: var(--main-pink);
     transition: .5s;
 }
-
+.show-more-report-btn{
+    margin-bottom: 20px;
+    color: white !important;
+}
 .team h4,.skill h4 {
     color: var(--main-blue);
 

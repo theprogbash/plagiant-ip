@@ -157,7 +157,7 @@
                         <div class="skill-chart skill-circle" data-dimension="160" data-text="{{ rounded_percentage }}%"
                             data-width="6" data-fontsize="28" data-percent="{{ percentage_for_chart }}"
                             data-fgcolor="#FF1455" data-bgcolor="#ffffff"></div>
-                        <button>Ətraflı</button>
+                        <button class="show-more-report-btn btn btn-custom">Ətraflı</button>
                     </div>
                 </div>
 
@@ -189,7 +189,7 @@
                 </div> -->
             </div>
 
-            <div class="detailed-report">
+            <div class="detailed-report" id="find-by-fives-detailed">
                 <div class="detailed-report-container">
                     <div class="text-center">
                         <h4 style="padding-bottom: 40px;">
@@ -264,6 +264,7 @@
     <script src="{% static 'js/scripts.js' %}"></script>
     <script src="{% static 'js/custom_selectbox.js' %}"></script>
     <script src="{% static 'js/physical_acc_btn.js' %}"></script>
+    <script src="{% static 'js/detailed_btn.js' %}"></script>
     <!-- #endregion -->
 </body>
 
