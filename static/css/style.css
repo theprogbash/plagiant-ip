@@ -469,7 +469,7 @@ fieldset {
 }
 .detailed-report-container thead{
     background-color: var(--main-blue);
-    color: #fff
+    color: #fff;
 }
 
 .team h4,.skill h4 {
