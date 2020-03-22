@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+import glob
 
 def index(request):
     return render(request, 'index.html', {})
@@ -66,7 +67,55 @@ def upload_document(request):
 @login_required(login_url='sign_in')
 def result(request):
     last_uploaded = OriginalDocument.objects.latest('id')
+
+    original = open(str(last_uploaded.document), 'r')
+    original_words = original.read().lower().split()
+    result = open("static/original_document/outfile2.txt", 'w')
+    found_count, fives_count = 0, 0
+    path = 'static/other_documents/doc*.txt'
+    files = glob.glob(path)
+
+    def iterate():
+        for i in range(len(original_words) - 4):
+            for j in range(len(original_words)+1):
+                if(j-i == 5):
+                    original_each_five = original_words[i:j]
+                    yield original_each_five
+                else:
+                    pass
+
+    for each_file in files:
+        other_docs = open(each_file, 'r')
+        other_docs_words = other_docs.read().lower().split()
+        print(other_docs_words)
+
+        for i in range(len(other_docs_words) - 4):
+            for j in range(len(other_docs_words)+1):
+                if(j-i == 5):
+                    each_five_others = other_docs_words[i:j]
+                    for original_each_five in iterate():
+                        if(original_each_five == each_five_others):
+                            found_count += 1
+                            result.write('{} hissəsi {} sənədində tapıldı.\n'.format(
+                                original_each_five, each_file))
+                        else:
+                            pass
+                else:
+                    pass
+
+    for original_each_five in iterate():
+        fives_count += 1
+
+    percentage = found_count/fives_count
+    rounded_percentage = round(percentage, 2)*100
+
+    result.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
+
     context = {
-        'last_uploaded': last_uploaded
+        'last_uploaded': last_uploaded,
+        'found_count': found_count,
+        'fives_count': fives_count,
+        'rounded_percentage': rounded_percentage
     }
+    
     return render(request, 'result.html', context)
