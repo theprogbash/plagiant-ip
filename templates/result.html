@@ -190,22 +190,24 @@
             </div>
 
             <div class="detailed-report">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Tapılan hissə</th>
-                            <th>Tapıldığı sənəd</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for fives_for_report, founded_docs_for_report in rows %}
-                        <tr>
-                            <td>{{ fives_for_report }}</td>
-                            <td>{{ founded_docs_for_report }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <div class="detailed-report-container">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tapılan hissə</th>
+                                <th>Tapıldığı sənəd</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for fives_for_report, founded_docs_for_report in rows %}
+                            <tr>
+                                <td>{{ fives_for_report }}</td>
+                                <td>{{ founded_docs_for_report }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
