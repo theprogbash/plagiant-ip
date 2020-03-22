@@ -8,7 +8,7 @@ class UploadDocumentForm(ModelForm):
     class Meta:
         model = OriginalDocument
         fields = '__all__'
-        exclude = ['date_added', 'checked_by']
+        exclude = ['date_added', 'uploaded_by']
 
     def __init__(self, *args, **kwargs):
         super(UploadDocumentForm, self).__init__(*args, **kwargs)
