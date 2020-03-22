@@ -70,7 +70,7 @@ def result(request):
 
     original = open(str(last_uploaded.document), 'r')
     original_words = original.read().lower().split()
-    report = open("static/report_documents/" + str(last_uploaded.document_title) + ".txt", 'w')
+    report = open("static/report_documents/" + str(last_uploaded.student_name) + "-" +str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
