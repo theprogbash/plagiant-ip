@@ -70,6 +70,12 @@ def result(request):
 
     original = open(str(last_uploaded.document), 'r')
     original_words = original.read().lower().split()
+    words_count = len(original_words)
+
+    open_original = open("original.txt", "r")
+    read_original = open_original.read()
+    characters_count = len(read_original)
+    
     report = open("static/report_documents/" + str(last_uploaded.student_name) + "-" +str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
     path = 'static/other_documents/doc*.txt'
@@ -126,7 +132,9 @@ def result(request):
         'percentage_for_chart': percentage_for_chart,
         'fives_for_report': fives_for_report,
         'founded_docs_for_report': founded_docs_for_report,
-        'rows': rows
+        'rows': rows,
+        'words_count': words_count,
+        'characters_count': characters_count
     }
 
     return render(request, 'result.html', context)
