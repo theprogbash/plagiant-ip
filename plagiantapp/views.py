@@ -72,7 +72,7 @@ def result(request):
     original_words = original.read().lower().split()
     words_count = len(original_words)
 
-    open_original = open("original.txt", "r")
+    open_original = open(str(last_uploaded.document), "r")
     read_original = open_original.read()
     characters_count = len(read_original)
     
