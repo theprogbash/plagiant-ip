@@ -125,7 +125,6 @@ def find_by_fives():
 
     return last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
 
-
 @login_required(login_url='sign_in')
 def result(request):
     last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count = find_by_fives()
@@ -140,7 +139,7 @@ def result(request):
         'founded_docs_for_report': founded_docs_for_report,
         'rows': rows,
         'words_count': words_count,
-        'characters_count': characters_count
+        'characters_count': characters_count,
     }
 
     return render(request, 'result.html', context)
