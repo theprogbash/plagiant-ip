@@ -74,6 +74,8 @@ def find_by_fives():
     open_original = open(str(last_uploaded.document), "r")
     read_original = open_original.read()
     characters_count = len(read_original)
+
+    rows = []
     
     report = open("static/report_documents/" + str(last_uploaded.student_name) + "-" +str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
@@ -124,6 +126,7 @@ def find_by_fives():
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
 
     return last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
+
 
 @login_required(login_url='sign_in')
 def result(request):
