@@ -8,8 +8,10 @@ from django.contrib import messages
 
 import glob
 
+
 def index(request):
     return render(request, 'index.html', {})
+
 
 def sign_up(request):
     if request.user.is_authenticated:
@@ -26,6 +28,7 @@ def sign_up(request):
                 return redirect('sign_in')
         context = {'form': form}
         return render(request, "sign_up.html", context)
+
 
 def sign_in(request):
     if request.user.is_authenticated:
@@ -46,6 +49,7 @@ def sign_in(request):
         context = {}
         return render(request, "sign_in.html", context)
 
+
 def sign_out(request):
     logout(request)
     return redirect('/')
@@ -64,7 +68,8 @@ def upload_document(request):
     }
     return render(request, 'upload_document.html', context)
 
-def find_by_fives():
+@login_required(login_url='sign_in')
+def result(request):
     last_uploaded = OriginalDocument.objects.latest('id')
 
     original = open(str(last_uploaded.document), 'r')
@@ -77,7 +82,8 @@ def find_by_fives():
 
     rows = []
 
-    report = open("static/report_documents/" + str(last_uploaded.student_name) + "-" +str(last_uploaded.document_title) + ".txt", 'w')
+    report = open("static/report_documents/" + str(last_uploaded.student_name) + 
+    "-" + str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
@@ -106,8 +112,9 @@ def find_by_fives():
 
                             fives_for_report.append(original_each_five)
                             founded_docs_for_report.append(each_file)
-                            rows = zip(fives_for_report, founded_docs_for_report)
-                            
+                            rows = zip(fives_for_report,
+                                       founded_docs_for_report)
+
                             found_count += 1
                             report.write('{} hissəsi {} sənədində tapıldı.\n'.format(
                                 original_each_five, each_file))
@@ -124,13 +131,6 @@ def find_by_fives():
     percentage_for_chart = round(rounded_percentage)
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
-
-    return last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
-
-
-@login_required(login_url='sign_in')
-def result(request):
-    last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count = find_by_fives()
 
     context = {
         'last_uploaded': last_uploaded,
