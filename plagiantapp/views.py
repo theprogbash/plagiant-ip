@@ -76,7 +76,7 @@ def find_by_fives():
     characters_count = len(read_original)
 
     rows = []
-    
+
     report = open("static/report_documents/" + str(last_uploaded.student_name) + "-" +str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
     path = 'static/other_documents/doc*.txt'
