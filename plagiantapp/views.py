@@ -50,11 +50,9 @@ def sign_out(request):
     logout(request)
     return redirect('/')
 
-def search_by_count(last_uploaded, difference, original_words):
+def search_by_count(last_uploaded, difference, original_words, report):
     rows = []
 
-    report = open("static/report_documents/" + str(last_uploaded.student_name) + 
-    "-" + str(last_uploaded.document_title) + ".txt", 'w')
     found_count, fives_count = 0, 0
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
@@ -133,8 +131,11 @@ def result(request):
     open_original = open(str(last_uploaded.document), "r")
     read_original = open_original.read()
     characters_count = len(read_original)
+    # Makes report about result
+    report = open("static/report_documents/" + str(last_uploaded.student_name) + 
+    "-" + str(last_uploaded.document_title) + ".txt", 'w')
 
-    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows = search_by_count(last_uploaded, 5, original_words)
+    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows = search_by_count(last_uploaded, 5, original_words, report)
 
     context = {
         'last_uploaded': last_uploaded,
