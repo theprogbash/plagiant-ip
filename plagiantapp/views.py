@@ -54,8 +54,7 @@ def sign_out(request):
     logout(request)
     return redirect('/')
 
-def search_by_count():
-    last_uploaded = OriginalDocument.objects.latest('id')
+def search_by_count(last_uploaded, difference):
 
     original = open(str(last_uploaded.document), 'r')
     original_words = original.read().lower().split()
@@ -76,9 +75,9 @@ def search_by_count():
     fives_for_report, founded_docs_for_report = [], []
 
     def iterate():
-        for i in range(len(original_words) - 4):
+        for i in range(len(original_words) - (difference-1)):
             for j in range(len(original_words)+1):
-                if(j-i == 5):
+                if(j-i == difference):
                     original_each_five = original_words[i:j]
                     yield original_each_five
                 else:
@@ -88,9 +87,9 @@ def search_by_count():
         other_docs = open(each_file, 'r')
         other_docs_words = other_docs.read().lower().split()
 
-        for i in range(len(other_docs_words) - 4):
+        for i in range(len(other_docs_words) - (difference-1)):
             for j in range(len(other_docs_words)+1):
-                if(j-i == 5):
+                if(j-i == difference):
                     each_five_others = other_docs_words[i:j]
                     for original_each_five in iterate():
                         if(original_each_five == each_five_others):
@@ -117,7 +116,7 @@ def search_by_count():
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
 
-    return last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
+    return found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
 
 @login_required(login_url='sign_in')
 def upload_document(request):
@@ -135,7 +134,9 @@ def upload_document(request):
 
 @login_required(login_url='sign_in')
 def result(request):
-    last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count = search_by_count()
+    last_uploaded = OriginalDocument.objects.latest('id')
+
+    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count = search_by_count(last_uploaded, 5)
 
     context = {
         'last_uploaded': last_uploaded,
