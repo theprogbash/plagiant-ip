@@ -50,12 +50,11 @@ def sign_out(request):
     logout(request)
     return redirect('/')
 
-def search_by_count(last_uploaded, difference, original_words, report):
+def search_by_count(last_uploaded, difference, original_words, report, files):
     rows = []
 
     found_count, fives_count = 0, 0
-    path = 'static/other_documents/doc*.txt'
-    files = glob.glob(path)
+    
 
     fives_for_report, founded_docs_for_report = [], []
 
@@ -134,8 +133,11 @@ def result(request):
     # Makes report about result
     report = open("static/report_documents/" + str(last_uploaded.student_name) + 
     "-" + str(last_uploaded.document_title) + ".txt", 'w')
+    # Path to the documents with which original doc is comparing
+    path = 'static/other_documents/doc*.txt'
+    files = glob.glob(path)
 
-    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows = search_by_count(last_uploaded, 5, original_words, report)
+    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows = search_by_count(last_uploaded, 5, original_words, report, files)
 
     context = {
         'last_uploaded': last_uploaded,
