@@ -94,7 +94,8 @@ def search_by_count(last_uploaded, difference, original_words, report, files):
         fives_count += 1
 
     percentage = found_count/fives_count
-    rounded_percentage = round(percentage, 2)*100
+    print(percentage)
+    rounded_percentage = int(round(percentage, 2)*100)
     percentage_for_chart = round(rounded_percentage)
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
