@@ -51,11 +51,6 @@ def sign_out(request):
     return redirect('/')
 
 def search_by_count(last_uploaded, difference, original_words):
-
-    open_original = open(str(last_uploaded.document), "r")
-    read_original = open_original.read()
-    characters_count = len(read_original)
-
     rows = []
 
     report = open("static/report_documents/" + str(last_uploaded.student_name) + 
@@ -108,7 +103,7 @@ def search_by_count(last_uploaded, difference, original_words):
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
 
-    return found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, characters_count
+    return found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows
 
 @login_required(login_url='sign_in')
 def upload_document(request):
@@ -130,8 +125,11 @@ def result(request):
     original = open(str(last_uploaded.document), 'r')
     original_words = original.read().lower().split()
     words_count = len(original_words)
+    open_original = open(str(last_uploaded.document), "r")
+    read_original = open_original.read()
+    characters_count = len(read_original)
 
-    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, characters_count = search_by_count(last_uploaded, 5, original_words)
+    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows = search_by_count(last_uploaded, 5, original_words)
 
     context = {
         'last_uploaded': last_uploaded,
