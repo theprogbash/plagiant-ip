@@ -54,22 +54,7 @@ def sign_out(request):
     logout(request)
     return redirect('/')
 
-@login_required(login_url='sign_in')
-def upload_document(request):
-    context = {}
-    form = UploadDocumentForm()
-    if request.method == 'POST':
-        form = UploadDocumentForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            form.save()
-            return redirect('result')
-    context = {
-        'form': form,
-    }
-    return render(request, 'upload_document.html', context)
-
-@login_required(login_url='sign_in')
-def result(request):
+def search_by_count():
     last_uploaded = OriginalDocument.objects.latest('id')
 
     original = open(str(last_uploaded.document), 'r')
@@ -131,6 +116,26 @@ def result(request):
     percentage_for_chart = round(rounded_percentage)
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
+
+    return last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
+
+@login_required(login_url='sign_in')
+def upload_document(request):
+    context = {}
+    form = UploadDocumentForm()
+    if request.method == 'POST':
+        form = UploadDocumentForm(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            form.save()
+            return redirect('result')
+    context = {
+        'form': form,
+    }
+    return render(request, 'upload_document.html', context)
+
+@login_required(login_url='sign_in')
+def result(request):
+    last_uploaded, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count = search_by_count()
 
     context = {
         'last_uploaded': last_uploaded,
