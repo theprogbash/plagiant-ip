@@ -8,10 +8,8 @@ from django.contrib import messages
 
 import glob
 
-
 def index(request):
     return render(request, 'index.html', {})
-
 
 def sign_up(request):
     if request.user.is_authenticated:
@@ -28,7 +26,6 @@ def sign_up(request):
                 return redirect('sign_in')
         context = {'form': form}
         return render(request, "sign_up.html", context)
-
 
 def sign_in(request):
     if request.user.is_authenticated:
@@ -49,16 +46,11 @@ def sign_in(request):
         context = {}
         return render(request, "sign_in.html", context)
 
-
 def sign_out(request):
     logout(request)
     return redirect('/')
 
-def search_by_count(last_uploaded, difference):
-
-    original = open(str(last_uploaded.document), 'r')
-    original_words = original.read().lower().split()
-    words_count = len(original_words)
+def search_by_count(last_uploaded, difference, original_words):
 
     open_original = open(str(last_uploaded.document), "r")
     read_original = open_original.read()
@@ -116,7 +108,7 @@ def search_by_count(last_uploaded, difference):
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
 
-    return found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count
+    return found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, characters_count
 
 @login_required(login_url='sign_in')
 def upload_document(request):
@@ -135,8 +127,11 @@ def upload_document(request):
 @login_required(login_url='sign_in')
 def result(request):
     last_uploaded = OriginalDocument.objects.latest('id')
+    original = open(str(last_uploaded.document), 'r')
+    original_words = original.read().lower().split()
+    words_count = len(original_words)
 
-    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, words_count, characters_count = search_by_count(last_uploaded, 5)
+    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows, characters_count = search_by_count(last_uploaded, 5, original_words)
 
     context = {
         'last_uploaded': last_uploaded,
