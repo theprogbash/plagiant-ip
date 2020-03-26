@@ -55,7 +55,6 @@ def search_by_count(last_uploaded, difference, original_words, report, files):
 
     found_count, fives_count = 0, 0
     
-
     fives_for_report, founded_docs_for_report = [], []
 
     def iterate():
