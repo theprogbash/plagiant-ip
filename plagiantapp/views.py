@@ -121,10 +121,15 @@ def upload_document(request):
 
 @login_required(login_url='sign_in')
 def result(request):
+    # Gets the last uploaded document
     last_uploaded = OriginalDocument.objects.latest('id')
+    # Opens the las uploaded document
     original = open(str(last_uploaded.document), 'r')
+    # Reads the last uploaded document after opening it
     original_words = original.read().lower().split()
+    # Shows up number of WORDS in document
     words_count = len(original_words)
+    # Opens the original document, reads it, and returns number of characters
     open_original = open(str(last_uploaded.document), "r")
     read_original = open_original.read()
     characters_count = len(read_original)
