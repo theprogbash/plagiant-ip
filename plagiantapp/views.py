@@ -98,7 +98,7 @@ def search_by_count(last_uploaded, difference, original_words, report, files):
 
     report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
 
-    return found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows
+    return rows, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report
 
 @login_required(login_url='sign_in')
 def upload_document(request):
@@ -137,7 +137,7 @@ def result(request):
     files = glob.glob(path)
     #endregion
 
-    found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report, rows = search_by_count(last_uploaded, 5, original_words, report, files)
+    rows, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report = search_by_count(last_uploaded, 5, original_words, report, files)
 
     context = {
         'last_uploaded': last_uploaded,
