@@ -49,7 +49,7 @@ def sign_out(request):
     logout(request)
     return redirect('/')
 
-def search_by_count(last_uploaded, difference, original_words, report, files):
+def search_by_five(last_uploaded, difference, original_words, report, files):
     rows = []
 
     found_count, fives_count = 0, 0
@@ -92,13 +92,64 @@ def search_by_count(last_uploaded, difference, original_words, report, files):
     for original_each_five in iterate():
         fives_count += 1
 
-    percentage = found_count/fives_count
-    rounded_percentage = int(round(percentage, 2)*100)
-    percentage_for_chart = round(rounded_percentage)
+    percentage_five = found_count/fives_count
+    rounded_percentage_five = int(round(percentage_five, 2)*100)
+    percentage_for_chart_five = round(rounded_percentage_five)
 
-    report.write('Plagiat faizi: {}%'.format(round(percentage, 2)*100))
+    report.write('Plagiat faizi: {}%'.format(round(percentage_five, 2)*100))
 
-    return rows, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report
+    return rows, found_count, fives_count, rounded_percentage_five, percentage_for_chart_five, fives_for_report, founded_docs_for_report
+
+def search_by_twenty(last_uploaded, difference, original_words, report, files):
+    rows_twenty = []
+
+    found_count, twenties_count = 0, 0
+    
+    twenties_for_report, founded_docs_for_report = [], []
+
+    def iterate():
+        for i in range(len(original_words) - (difference-1)):
+            for j in range(len(original_words)+1):
+                if(j-i == difference):
+                    original_each_twenty = original_words[i:j]
+                    yield original_each_twenty
+                else:
+                    pass
+
+    for each_file in files:
+        other_docs = open(each_file, 'r')
+        other_docs_words = other_docs.read().lower().split()
+
+        for i in range(len(other_docs_words) - (difference-1)):
+            for j in range(len(other_docs_words)+1):
+                if(j-i == difference):
+                    each_twenty_others = other_docs_words[i:j]
+                    for original_each_twenty in iterate():
+                        if(original_each_twenty == each_twenty_others):
+
+                            twenties_for_report.append(original_each_twenty)
+                            founded_docs_for_report.append(each_file)
+                            rows_twenty = zip(twenties_for_report,
+                                       founded_docs_for_report)
+
+                            found_count += 1
+                            report.write('{} hissəsi {} sənədində tapıldı.\n'.format(
+                                original_each_twenty, each_file))
+                        else:
+                            pass
+                else:
+                    pass
+
+    for original_each_twenty in iterate():
+        twenties_count += 1
+
+    percentage_twenty = found_count/twenties_count
+    rounded_percentage_twenty = int(round(percentage_twenty, 2)*100)
+    percentage_for_chart_twenty = round(rounded_percentage_twenty)
+
+    report.write('Plagiat faizi: {}%'.format(round(percentage_twenty, 2)*100))
+
+    return rows_twenty, found_count, twenties_count, rounded_percentage_twenty, percentage_for_chart_twenty, twenties_for_report, founded_docs_for_report
 
 @login_required(login_url='sign_in')
 def upload_document(request):
@@ -130,24 +181,33 @@ def result(request):
     read_original = open_original.read()
     characters_count = len(read_original)
     # Makes report about result
-    report = open("static/report_documents/" + str(last_uploaded.student_name) + 
-    "-" + str(last_uploaded.document_title) + ".txt", 'w')
+    report_fives = open("static/report_documents/" + str(last_uploaded.student_name) + 
+    "-" + str(last_uploaded.document_title) + "-5.txt", 'w')
+    report_twenties = open("static/report_documents/" + str(last_uploaded.student_name) + 
+    "-" + str(last_uploaded.document_title) + "-20.txt", 'w')
     # Path to the documents with which original doc is comparing
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
     #endregion
 
-    rows, found_count, fives_count, rounded_percentage, percentage_for_chart, fives_for_report, founded_docs_for_report = search_by_count(last_uploaded, 5, original_words, report, files)
+    rows, found_count, fives_count, rounded_percentage_five, percentage_for_chart_five, fives_for_report, founded_docs_for_report = search_by_five(last_uploaded, 5, original_words, report_fives, files)
 
+    rows_twenty, found_count, twenties_count, rounded_percentage_twenty, percentage_for_chart_twenty, twenties_for_report, founded_docs_for_report = search_by_twenty(last_uploaded, 20, original_words, report_twenties, files)
+    
     context = {
         'last_uploaded': last_uploaded,
         'found_count': found_count,
         'fives_count': fives_count,
-        'rounded_percentage': rounded_percentage,
-        'percentage_for_chart': percentage_for_chart,
+        'twenties_count': twenties_count,
+        'rounded_percentage_five': rounded_percentage_five,
+        'rounded_percentage_twenty': rounded_percentage_twenty,
+        'percentage_for_chart_five': percentage_for_chart_five,
+        'percentage_for_chart_twenty': percentage_for_chart_twenty,
         'fives_for_report': fives_for_report,
+        'twenties_for_report': twenties_for_report,
         'founded_docs_for_report': founded_docs_for_report,
         'rows': rows,
+        'rows_twenty': rows_twenty,
         'words_count': words_count,
         'characters_count': characters_count,
     }
