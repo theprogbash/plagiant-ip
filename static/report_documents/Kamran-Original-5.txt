@@ -1,0 +1,8 @@
+['universitetində', 'magistr', 'təhsili', 'alıram.', 'mən'] hissəsi static/other_documents/doc1.txt sənədində tapıldı.
+['magistr', 'təhsili', 'alıram.', 'mən', 'bakı'] hissəsi static/other_documents/doc1.txt sənədində tapıldı.
+['təhsili', 'alıram.', 'mən', 'bakı', 'şəhərində'] hissəsi static/other_documents/doc1.txt sənədində tapıldı.
+['alıram.', 'mən', 'bakı', 'şəhərində', 'anadan'] hissəsi static/other_documents/doc1.txt sənədində tapıldı.
+['mən', 'bakı', 'şəhərində', 'anadan', 'olmuşam.'] hissəsi static/other_documents/doc1.txt sənədində tapıldı.
+['universitetində', 'magistr', 'təhsili', 'alıram.', 'mən'] hissəsi static/other_documents/doc2.txt sənədində tapıldı.
+['mən', 'bakı', 'şəhərində', 'anadan', 'olmuşam.'] hissəsi static/other_documents/doc2.txt sənədində tapıldı.
+Plagiat faizi: 44.0%
