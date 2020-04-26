@@ -66,7 +66,7 @@ def search_by_five(last_uploaded, difference, original_words, report, files):
                     pass
 
     for each_file in files:
-        other_docs = open(each_file, 'r')
+        other_docs = open(each_file, 'r', encoding="utf-8")
         other_docs_words = other_docs.read().lower().split()
 
         for i in range(len(other_docs_words) - (difference-1)):
@@ -117,7 +117,7 @@ def search_by_twenty(last_uploaded, difference, original_words, report, files):
                     pass
 
     for each_file in files:
-        other_docs = open(each_file, 'r')
+        other_docs = open(each_file, 'r', encoding="utf-8")
         other_docs_words = other_docs.read().lower().split()
 
         for i in range(len(other_docs_words) - (difference-1)):
@@ -171,20 +171,20 @@ def result(request):
     # Gets the last uploaded document
     last_uploaded = OriginalDocument.objects.latest('id')
     # Opens the las uploaded document
-    original = open(str(last_uploaded.document), 'r')
+    original = open(str(last_uploaded.document), 'r', encoding="utf-8")
     # Reads the last uploaded document after opening it
     original_words = original.read().lower().split()
     # Shows up number of WORDS in document
     words_count = len(original_words)
     # Opens the original document, reads it, and returns number of characters
-    open_original = open(str(last_uploaded.document), "r")
+    open_original = open(str(last_uploaded.document), "r", encoding="utf-8")
     read_original = open_original.read()
     characters_count = len(read_original)
     # Makes report about result
     report_fives = open("static/report_documents/" + str(last_uploaded.student_name) + 
-    "-" + str(last_uploaded.document_title) + "-5.txt", 'w')
+    "-" + str(last_uploaded.document_title) + "-5.txt", 'w', encoding="utf-8")
     report_twenties = open("static/report_documents/" + str(last_uploaded.student_name) + 
-    "-" + str(last_uploaded.document_title) + "-20.txt", 'w')
+    "-" + str(last_uploaded.document_title) + "-20.txt", 'w', encoding="utf-8")
     # Path to the documents with which original doc is comparing
     path = 'static/other_documents/doc*.txt'
     files = glob.glob(path)
