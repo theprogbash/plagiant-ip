@@ -47,7 +47,7 @@ pyparsing==2.4.6
 python-dateutil==2.8.1
 python-pptx==0.6.18
 pytz==2019.3
-PyYAML==5.3
+PyYAML==5.4
 requests==2.22.0
 scikit-learn==0.22
 scipy==1.4.1
