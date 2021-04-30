@@ -60,7 +60,7 @@ tablib==0.14.0
 textract==1.6.3
 typed-ast==1.4.0
 tzlocal==1.5.1
-urllib3==1.25.7
+urllib3==1.25.8
 virtualenv==16.6.2
 virtualenv-clone==0.5.3
 whitenoise==5.0.1
